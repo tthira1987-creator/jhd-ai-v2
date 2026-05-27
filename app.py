@@ -22,10 +22,11 @@ def load_brain():
 
 db = load_brain()
 
-# 3. ช่องใส่ API Key (ใส่แถบด้านข้าง ปลอดภัยกว่าการฝังในโค้ด)
-api_key = st.sidebar.text_input("🔑 ใส่ OpenRouter API Key", type="password")
-if not api_key:
-    st.warning("👈 กรุณาใส่ API Key ที่แถบด้านซ้ายเพื่อเริ่มใช้งานครับ")
+# 3. ดึง API Key จากระบบหลังบ้าน (Secrets)
+try:
+    api_key = st.secrets["OPENROUTER_API_KEY"]
+except:
+    st.error("⚠️ ยังไม่ได้ตั้งค่า API Key ในระบบ Secrets ของ Streamlit ครับ")
     st.stop()
 
 client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
