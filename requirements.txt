@@ -6,3 +6,5 @@ chromadb
 sentence-transformers
 markdown
 pysqlite3-binary
+torch
+torchvision
