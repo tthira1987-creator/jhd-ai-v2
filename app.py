@@ -47,7 +47,7 @@ if prompt := st.chat_input("พิมพ์คุยกับน้อง SUN...
         st.markdown(prompt)
 
     # 🧠 ให้สมองกลค้นหาข้อมูล (ดึงมา 4 ส่วนที่ตรงกับคำถามที่สุด)
-    docs = db.similarity_search(prompt, k=4)
+    docs = db.similarity_search(prompt, k=8)
     context = "\n".join([doc.page_content for doc in docs])
 
     # 🤖 สั่งการ Gemini (พร้อมส่งข้อมูลจากสมองกลไปให้)
