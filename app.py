@@ -72,7 +72,7 @@ if prompt := st.chat_input("พิมพ์คุยกับน้อง SUN...
             response = client.chat.completions.create(
                 model="google/gemini-2.5-flash",
                 messages=messages_to_send,
-                temperature=0.7
+                temperature=0.0
             )
             answer = response.choices[0].message.content
             st.markdown(answer)
